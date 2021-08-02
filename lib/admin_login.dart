@@ -50,7 +50,7 @@ class _AdminLoginState extends State<AdminLogin> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your admin key';
-                        } else if (value.length != 8) {
+                        } else if (value.length != 8 || value != '06042018') {
                           //admin key = 06042018
                           return 'Wrong admin key';
                         }

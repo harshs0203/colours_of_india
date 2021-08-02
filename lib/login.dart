@@ -1,5 +1,8 @@
 import 'package:colours_of_india/admin_login.dart';
+import 'package:colours_of_india/client_welcome.dart';
+import 'package:colours_of_india/services/authentication/google_sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -7,7 +10,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    var provider;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -20,7 +23,15 @@ class LoginScreen extends StatelessWidget {
               height: size.height * 0.25,
             ),
             RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                provider =
+                    Provider.of<GoogleSignInProvider>(context, listen: false);
+                provider.login();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ClientWelcome()),
+                );
+              },
               child: Text('Login In With Google'),
             ),
             SizedBox(

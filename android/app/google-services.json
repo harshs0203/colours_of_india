@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "842085658743",
+    "project_id": "colours-of-india-7c993",
+    "storage_bucket": "colours-of-india-7c993.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842085658743:android:e7b28d6730a432ba9dd672",
+        "android_client_info": {
+          "package_name": "com.harshs.colours_of_india"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842085658743-numn6pcdvpta7pu53blv7thqtppbjihp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.harshs.colours_of_india",
+            "certificate_hash": "d809a73a84efd71749d463bc38903cbae8fbb9d3"
+          }
+        },
+        {
+          "client_id": "842085658743-mcrqb9tdc3jo8l2ss0hs1eaaau90jcp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQcIev9VCO56gqbkMT1ANs-LjwHCRMIGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842085658743-mcrqb9tdc3jo8l2ss0hs1eaaau90jcp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

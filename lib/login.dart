@@ -1,8 +1,6 @@
-import 'package:colours_of_india/services/admin_pages/admin_login.dart';
-import 'package:colours_of_india/services/client_pages/client_welcome.dart';
-import 'package:colours_of_india/services/authentication/google_sign_in.dart';
+import 'package:colours_of_india/admin_pages/admin_login.dart';
+import 'package:colours_of_india/client_pages/client_welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -24,15 +22,12 @@ class LoginScreen extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                provider =
-                    Provider.of<GoogleSignInProvider>(context, listen: false);
-                provider.login();
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ClientWelcome()),
                 );
               },
-              child: Text('Login In With Google'),
+              child: Text('I\'m an Client'),
             ),
             SizedBox(
               height: size.height * 0.02,

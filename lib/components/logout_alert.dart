@@ -1,13 +1,5 @@
 import 'package:colours_of_india/login.dart';
 import 'package:flutter/material.dart';
-import 'package:colours_of_india/services/authentication/google_sign_in.dart';
-
-class LogOutAlert extends StatelessWidget {
-  const LogOutAlert({
-    required this.provider,
-  });
-
-  final GoogleSignInProvider provider;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +20,6 @@ class LogOutAlert extends StatelessWidget {
         ),
         FlatButton(
             onPressed: () {
-              provider.logout();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -41,4 +32,3 @@ class LogOutAlert extends StatelessWidget {
       elevation: 24.0,
     );
   }
-}

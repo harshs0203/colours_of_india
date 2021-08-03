@@ -1,8 +1,5 @@
-import 'package:colours_of_india/services/authentication/google_sign_in.dart';
-import 'package:colours_of_india/services/client_pages/client_form.dart';
-import 'package:colours_of_india/services/components/logout_alert.dart';
+import 'package:colours_of_india/client_pages/client_form.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ClientWelcome extends StatefulWidget {
   const ClientWelcome({Key? key}) : super(key: key);
@@ -92,12 +89,7 @@ class _ClientWelcomeState extends State<ClientWelcome> {
                 );
               }
             }, child: Text('Next')),
-            ElevatedButton(onPressed: (){
-              final provider =
-              Provider.of<GoogleSignInProvider>(context, listen: false);
 
-              showDialog(context: context, builder: (BuildContext context) => LogOutAlert(provider: provider), barrierDismissible: false);
-            }, child: Text('Log Out')),
           ],
         ),
       )

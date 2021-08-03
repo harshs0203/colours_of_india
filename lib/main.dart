@@ -1,8 +1,6 @@
-import 'package:colours_of_india/services/authentication/auth_page.dart';
-import 'package:colours_of_india/services/authentication/google_sign_in.dart';
+import 'package:colours_of_india/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,18 +12,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => GoogleSignInProvider(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          backgroundColor: Colors.white,
-          primaryColor: Color(0xff1d3c73),
-          primarySwatch: Colors.blue,
-        ),
-        home: Authentication(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        backgroundColor: Colors.white,
+        primaryColor: Color(0xff1d3c73),
+        primarySwatch: Colors.blue,
       ),
+      home: LoginScreen(),
     );
   }
 }

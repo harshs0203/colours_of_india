@@ -1,5 +1,5 @@
-import 'package:colours_of_india/admin_login.dart';
-import 'package:colours_of_india/client_welcome.dart';
+import 'package:colours_of_india/services/admin_pages/admin_login.dart';
+import 'package:colours_of_india/services/client_pages/client_welcome.dart';
 import 'package:colours_of_india/services/authentication/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

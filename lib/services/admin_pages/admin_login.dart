@@ -1,4 +1,4 @@
-import 'package:colours_of_india/oders_screen.dart';
+import 'package:colours_of_india/services/admin_pages/oders_screen.dart';
 import 'package:flutter/material.dart';
 
 class AdminLogin extends StatefulWidget {

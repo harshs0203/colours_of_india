@@ -19,12 +19,16 @@ class _ClientWelcomeState extends State<ClientWelcome> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
-          top: 40.0
+          top: 40.0,
+          right: 10.0,
+          left: 10.0
         ),
         child: ListView(
           children: [
             Text('Hello, you need to fill the form below and we will get back to you as soon as possible.'),
-            Form(child: Column(
+            Form(
+              key: _formKey,
+              child: Column(
               children: [
                 Text('Name'),
                 TextFormField(
@@ -84,7 +88,7 @@ class _ClientWelcomeState extends State<ClientWelcome> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ClientForm(),
+                    builder: (context) => ClientForm(name: name,pNum: phoneNumber,altPNum: altPhoneNumber,),
                   ),
                 );
               }

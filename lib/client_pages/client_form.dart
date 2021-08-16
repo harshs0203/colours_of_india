@@ -18,32 +18,49 @@ class _ClientFormState extends State<ClientForm> {
   final String name;
   final String pNum;
   final String altPNum;
-  var numbers = ['1', '2', '3', '4', '5', '6','7', '8','9','10'];
-  var adult ;
+  String location = '';
+  var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  var adult;
   var children;
-  DateTime selectedDate = DateTime.now();
+  DateTime departureDate = DateTime.now();
+  DateTime arrivalDate = DateTime.now();
 
-  Future<void> _selectDate(BuildContext context) async {
+  Future<void> _departureDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
-        initialDate: selectedDate,
+        initialDate: departureDate,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate)
+    if (picked != null && picked != departureDate)
       setState(() {
-        selectedDate = picked;
+        departureDate = picked;
+      });
+  }
+
+  Future<void> _arrivalDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: arrivalDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != arrivalDate)
+      setState(() {
+        arrivalDate = picked;
       });
   }
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             Row(
               children: [
-              Text('Number of Adults:\t'),
+                Text('Number of Adults:\t'),
                 DropdownButton<String>(
                   value: adult,
                   icon: const Icon(Icons.arrow_drop_down),
@@ -60,8 +77,7 @@ class _ClientFormState extends State<ClientForm> {
                       print(adult);
                     });
                   },
-                  items: numbers
-                      .map<DropdownMenuItem<String>>((String value) {
+                  items: numbers.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -92,8 +108,7 @@ class _ClientFormState extends State<ClientForm> {
                       print(children);
                     });
                   },
-                  items: numbers
-                      .map<DropdownMenuItem<String>>((String value) {
+                  items: numbers.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -108,15 +123,24 @@ class _ClientFormState extends State<ClientForm> {
                 border: OutlineInputBorder(),
                 hintText: 'Enter your destination',
               ),
+              onChanged: (value){
+                setState(() {
+                  location = value;
+                });
+              },
             ),
             Row(
               children: [
                 Text('Departure Data'),
-                SizedBox(width: 20.0,),
-                Text("${selectedDate.toLocal()}".split(' ')[0]),
-                SizedBox(width: 20.0,),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Text("${departureDate.toLocal()}".split(' ')[0]),
+                SizedBox(
+                  width: 20.0,
+                ),
                 RaisedButton(
-                  onPressed: () => _selectDate(context),
+                  onPressed: () => _departureDate(context),
                   child: Text('Select date'),
                 ),
               ],
@@ -124,13 +148,34 @@ class _ClientFormState extends State<ClientForm> {
             Row(
               children: [
                 Text('Departure Data'),
-                SizedBox(width: 20.0,),
-                Text("${selectedDate.toLocal()}".split(' ')[0]),
-                SizedBox(width: 20.0,),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Text("${arrivalDate.toLocal()}".split(' ')[0]),
+                SizedBox(
+                  width: 20.0,
+                ),
                 RaisedButton(
-                  onPressed: () => _selectDate(context),
+                  onPressed: () => _arrivalDate(context),
                   child: Text('Select date'),
                 ),
+              ],
+            ),
+            Row(
+              children: [
+                ElevatedButton(onPressed: () {
+                  Navigator.pop(context);
+                }, child: Text('Back')),
+                ElevatedButton(onPressed: () {
+
+                  setState(() {
+
+                    print(arrivalDate);
+                    print(departureDate);
+                    print(location);
+                  });
+
+                }, child: Text('Submit')),
               ],
             ),
           ],
